@@ -1,10 +1,10 @@
 [Unit]
-Description=Sidekiq for <%= settings[:application] %>
+Description=Solid Queue for <%= settings[:application] %>
 After=syslog.target network.target
 ConditionPathExists=<%= paths.current %>
 
 [Service]
-ExecStart=/bin/bash -lc 'exec bundle exec sidekiq'
+ExecStart=/bin/bash -lc 'exec bundle exec rake solid_queue:start'
 Restart=always
 RestartSec=1
 StandardError=syslog

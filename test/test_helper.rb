@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "tomo/plugin/sidekiq"
+require "tomo/plugin/solid_queue"
 require "tomo/testing"
 
 require "minitest/autorun"

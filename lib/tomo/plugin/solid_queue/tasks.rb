@@ -1,4 +1,4 @@
-module Tomo::Plugin::Sidekiq
+module Tomo::Plugin::SolidQueue
   class Tasks < Tomo::TaskLibrary
     SystemdUnit = Struct.new(:name, :template, :path)
 
@@ -26,9 +26,9 @@ module Tomo::Plugin::Sidekiq
 
     def service
       SystemdUnit.new(
-        settings[:sidekiq_systemd_service],
-        paths.sidekiq_systemd_service_template,
-        paths.sidekiq_systemd_service
+        settings[:solid_queue_systemd_service],
+        paths.solid_queue_systemd_service_template,
+        paths.solid_queue_systemd_service
       )
     end
 
@@ -38,7 +38,7 @@ module Tomo::Plugin::Sidekiq
 
       die <<~ERROR.strip
         Linger must be enabled for the #{remote.host.user} user in order for
-        sidekiq to stay running in the background via systemd. Run the following
+        solid_queue to stay running in the background via systemd. Run the following
         command as root:
 
           loginctl enable-linger #{remote.host.user}
