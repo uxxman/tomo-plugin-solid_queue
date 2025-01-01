@@ -10,8 +10,7 @@ RestartSec=1
 StandardError=syslog
 StandardOutput=syslog
 SyslogIdentifier=%n
-Type=notify
-WatchdogSec=10
+Type=simple
 WorkingDirectory=<%= paths.current %>
 
 # Greatly reduce Ruby memory fragmentation and heap usage
