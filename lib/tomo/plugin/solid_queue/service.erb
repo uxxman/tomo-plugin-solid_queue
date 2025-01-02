@@ -7,8 +7,6 @@ ConditionPathExists=<%= paths.current %>
 ExecStart=/bin/bash -lc 'exec bundle exec rake solid_queue:start'
 Restart=always
 RestartSec=1
-StandardError=syslog
-StandardOutput=syslog
 SyslogIdentifier=%n
 Type=simple
 WorkingDirectory=<%= paths.current %>
